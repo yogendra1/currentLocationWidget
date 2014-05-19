@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/silver"
+                android:padding="10dp"
+        >
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lbl_thanks_message"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentTop="true"
+            android:text="@string/msg_widget_add_instruction"
+            />
+
+    <!-- check box to enable/disable status bar notification -->
+    <CheckedTextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/chk_toggle_notification"
+              android:textSize="18dp"
+              android:layout_below="@id/lbl_thanks_message"
+              android:textColor="@android:color/black"
+              android:text="@string/enable_status_bar_notification"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lbl_select_theme"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/chk_toggle_notification"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="@string/lbl_select_theme_txt"
+            android:visibility="gone"
+            />
+
+
+    <ListView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@id/lbl_select_theme"
+              android:id="@+id/list_widget_themes"
+              android:dividerHeight="15dp"/>
+
+</RelativeLayout>
+

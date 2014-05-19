@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/widget_parent_container"
+              android:layout_margin="8dp"
+              android:background="@drawable/theme_white_on_black">
+
+    <!-- button to share location address -->
+    <ImageButton android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:id="@+id/btn_show_on_map"
+                 android:layout_weight="4"
+                 android:src="@android:drawable/ic_menu_view"/>
+
+    <!-- layout for showing address and last update time -->
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    android:paddingBottom="3dp"
+                    android:id="@+id/refresh_time_container"
+                    android:layout_weight="1">
+
+        <!-- near by lable -->
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/lbl_nearby"
+                  android:textSize="15sp"
+                  android:textStyle="bold|italic"
+                  android:textColor="@android:color/white"
+                  android:text="@string/msg_you_are_nearby"
+                  android:layout_alignParentTop="true"/>
+
+        <!-- address -->
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="4dp"
+                  android:id="@+id/txt_address"
+                  android:textSize="13sp"
+                  android:textColor="@android:color/white"
+                  android:text="@string/initializing"
+                  android:layout_below="@id/lbl_nearby"/>
+
+        <!-- last update time -->
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="5dp"
+                  android:layout_alignParentBottom="true"
+                  android:layout_alignParentRight="true"
+                  android:id="@+id/txt_last_update_time"
+                  android:textColor="@android:color/white"
+                  android:text="@string/initializing"
+                  android:textSize="11sp"/>
+
+        <!-- progress bar -->
+        <ProgressBar android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentBottom="true"
+                     android:layout_toLeftOf="@id/txt_last_update_time"
+                     android:id="@+id/location_progress"
+                     style="@android:style/Widget.ProgressBar.Small"
+                     android:layout_alignTop="@+id/txt_last_update_time"/>
+    </RelativeLayout>
+
+    <!-- button to share location address -->
+    <ImageButton android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:id="@+id/btn_share_address"
+                 android:layout_weight="4"
+                 android:src="@android:drawable/ic_menu_share"/>
+</LinearLayout>

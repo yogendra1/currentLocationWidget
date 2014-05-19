@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:padding="8dp"
+             android:background="@android:color/transparent">
+
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:gravity="center"
+                  android:id="@+id/theme_sample_container">
+
+        <!-- button to share location address -->
+        <!--<ImageButton android:layout_width="match_parent"-->
+                     <!--android:layout_height="match_parent"-->
+                     <!--android:id="@+id/btn_theme_show_on_map"-->
+                     <!--android:layout_weight="4"-->
+                     <!--android:src="@android:drawable/ic_menu_view"/>-->
+
+        <!-- layout for showing address and last update time -->
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="0dp"
+                        android:paddingBottom="3dp"
+                        android:id="@+id/refresh_time_container"
+                        android:layout_weight="1">
+
+            <!-- near by lable -->
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/lbl_theme_nearby"
+                      android:textSize="15sp"
+                      android:textStyle="bold|italic"
+                      android:textColor="@android:color/white"
+                      android:text="@string/msg_you_are_nearby"
+                      android:layout_alignParentTop="true"/>
+
+            <!-- address -->
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="4dp"
+                      android:id="@+id/txt_theme_address"
+                      android:textSize="13sp"
+                      android:textColor="@android:color/white"
+                      android:text="@string/dummy_location_message"
+                      android:layout_below="@id/lbl_theme_nearby"/>
+
+            <!-- last update time -->
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="5dp"
+                      android:layout_alignParentBottom="true"
+                      android:layout_alignParentRight="true"
+                      android:layout_below="@id/txt_theme_address"
+                      android:id="@+id/txt_theme_time"
+                      android:textColor="@android:color/white"
+                      android:text="@string/dummy_time_message"
+                      android:textSize="11sp"/>
+
+        </RelativeLayout>
+
+        <!-- button to share location address -->
+        <!--<ImageButton android:layout_width="match_parent"-->
+                     <!--android:layout_height="match_parent"-->
+                     <!--android:id="@+id/btn_theme_share_address"-->
+                     <!--android:layout_weight="4"-->
+                     <!--android:src="@android:drawable/ic_menu_share"/>-->
+    </LinearLayout>
+
+    <!-- image view shows selected theme tick mark -->
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/img_selected_theme_tick"
+               android:src="@android:drawable/star_on"
+               android:layout_gravity="top|right"
+               android:visibility="gone"/>
+</FrameLayout>
