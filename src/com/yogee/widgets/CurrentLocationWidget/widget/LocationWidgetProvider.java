@@ -65,8 +65,9 @@ public class LocationWidgetProvider extends AppWidgetProvider {
         } else if (intent.getAction().equals(AppWidgetManager.ACTION_APPWIDGET_DISABLED)) {
             Utilities.AppLog.d(TAG, ">>>>> last widget removed stopping the service");
 
-            /* stopping get location service */
+            /* stopping get location service  removing the notification*/
             context.stopService(new Intent(context, LocationService.class));
+            Utilities.cancelStatusBarNotification(context);
         } else if (intent.getAction().equals(Constants.INTENT_ACTION_SHARE_LOCATION)) {
             Utilities.AppLog.d(TAG, ">>>>> share location event received");
 
