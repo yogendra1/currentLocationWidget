@@ -127,8 +127,8 @@ public class Utilities {
         /* notify with arbitrary id */
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        /* cancel if last notification is still exist */
-        notificationManager.cancel(Constants.STATUS_BAR_NOTIFICATION_ID);
+        /* cancel if last notification is still exist  :: uncomment if  notification needs to show every time even address is not changed */
+        //notificationManager.cancel(Constants.STATUS_BAR_NOTIFICATION_ID);
 
         /* notify */
         notificationManager.notify(Constants.STATUS_BAR_NOTIFICATION_ID, builder.build());

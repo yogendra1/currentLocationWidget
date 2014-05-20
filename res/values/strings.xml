@@ -4,14 +4,20 @@
     <string name="initializing">Initializing...</string>
     <string name="refreshing">Refreshing...</string>
     <string name="msg_you_are_nearby">You are nearby</string>
-    <string name="msg_i_am_are_nearby">Hey! i am nearby</string>
+    <string name="msg_i_am_are_nearby">Hey! I am nearby</string>
     <string name="msg_updated_at">Updated at</string>
-    <string name="msg_services_disabled">It seems location services on device are disabled, to know where you are please enable them from settings.</string>
-    <string name="msg_widget_add_instruction">Thanks! for installing my current location widget, it will show your current location, please go to widget section and add Location Widget to your home screen.</string>
-    <string name="msg_connection_with_play_services_unsuccessful">Unable to connect with play services, please try later.</string>
+    <string name="msg_services_disabled">It seems location services are disabled, please enable them from settings.
+    </string>
+    <string name="msg_widget_add_instruction">Thanks! for installing current location widget, it will show your
+        current location, please go to widget section and add Location Widget to your home screen.
+    </string>
+    <string name="msg_connection_with_play_services_unsuccessful">Unable to connect with play services, please try
+        later.
+    </string>
     <string name="msg_unable_to_get_location">Unable to get your current location, please try later.</string>
     <string name="lbl_select_theme_txt">Select Theme</string>
-    <string name="dummy_location_message">You are nearby, Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France.</string>
+    <string name="dummy_location_message">You are nearby, Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France.
+    </string>
     <string name="dummy_time_message">Updated at, Thu 24 Apr 02:35PM</string>
     <string name="play_services_error">Google Play Services error!</string>
     <string name="map_link">Map link:</string>
