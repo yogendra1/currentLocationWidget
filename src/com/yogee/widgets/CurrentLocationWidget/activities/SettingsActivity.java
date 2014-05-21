@@ -34,9 +34,6 @@ public class SettingsActivity extends FragmentActivity implements AdapterView.On
     /* adapter instance */
     private BaseAdapter themeListAdapter;
 
-    /* fist visible item position */
-    private int firstVisiblePosition;
-
     /* checked text view on click listener */
     private View.OnClickListener checkBoxClickListener = new View.OnClickListener() {
         @Override
@@ -121,16 +118,9 @@ public class SettingsActivity extends FragmentActivity implements AdapterView.On
         /* starting the service */
         startService(new Intent(this, LocationService.class));
 
-        /* setting first visible item position */
-        firstVisiblePosition = themeList.getFirstVisiblePosition();
-
-        /* refreshing the list */
-        themeList.setAdapter(null);
-        if (themeListAdapter == null) {
-            themeListAdapter = new ThemeListAdapter(this, 0, themes);
-        }
-        themeList.setAdapter(themeListAdapter);
-        themeList.setSelection(firstVisiblePosition);
+        /*  refreshing the adapter and list ui */
+        themeListAdapter.notifyDataSetChanged();
+        themeListAdapter.notifyDataSetInvalidated();
     }
 
     private void initSettingsView() {
