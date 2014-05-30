@@ -24,9 +24,14 @@ public class EventReceiver extends BroadcastReceiver {
         int widgetCount = appWidgetManager.getAppWidgetIds(thisWidget).length;
         Utilities.AppLog.d(TAG, ">>>>>>>>>> total widget count found  - " + widgetCount);
 
-        if (widgetCount > 0) {
-            Utilities.AppLog.d(TAG, ">>>>>>>>>> action received starting the service - " + intent.getAction());
+
+        boolean isScreenOn = Utilities.isScreenOn(context);
+        Utilities.AppLog.d(TAG, ">>>>>>>>>> event received with action - " + intent.getAction() + " screen on - " + isScreenOn);
+
+         /* starting service only in case if at least one widget instance is added to home screen of screen is on i.e assuming that this is the screen unlock event by user not by any other notification related app*/
+        if (widgetCount > 0 && isScreenOn) {
             context.startService(new Intent(context, LocationService.class));
+            Utilities.AppLog.d(TAG, ">>>>>>>>>> Starting the service");
         }
     }
 }

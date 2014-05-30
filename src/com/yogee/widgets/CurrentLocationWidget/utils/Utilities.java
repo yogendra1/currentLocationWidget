@@ -10,6 +10,7 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.PowerManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import com.yogee.widgets.CurrentLocationWidget.R;
@@ -141,6 +142,15 @@ public class Utilities {
     public static void cancelStatusBarNotification(Context context) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(Constants.STATUS_BAR_NOTIFICATION_ID);
+    }
+
+    /**
+     * @param context
+     * @return true if screen is on
+     */
+    public static boolean isScreenOn(Context context){
+        PowerManager powerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
+        return powerManager.isScreenOn();
     }
 
     /* class for controlled logging */
