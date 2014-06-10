@@ -5,5 +5,5 @@
                     android:minHeight="40dp"
                     android:previewImage="@android:drawable/ic_menu_mylocation"
                     android:updatePeriodMillis="0"
-                    android:initialLayout="@layout/layout_theme_white_on_black">
+                    android:initialLayout="@layout/layout_loading_widget">
 </appwidget-provider>

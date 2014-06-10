@@ -32,18 +32,20 @@ public class WidgetThemeCollection {
     static {
         /* white on black */
         themes.add(new WidgetTheme(0, "White on Black", R.color.white, R.drawable.theme_white_on_black, R.layout.layout_theme_white_on_black));
+        /* black on white */
+        themes.add(new WidgetTheme(1, "Black on White", R.color.black, R.drawable.theme_black_on_white, R.layout.layout_theme_black_on_white));
         /* white on transparent black */
-        themes.add(new WidgetTheme(1, "White on Black transparent", R.color.white, R.drawable.theme_transparent_black, R.layout.layout_theme_transparent_black));
+        themes.add(new WidgetTheme(2, "White on Black transparent", R.color.white, R.drawable.theme_transparent_black, R.layout.layout_theme_transparent_black));
         /* white text on transparent*/
-        themes.add(new WidgetTheme(2, "Transparent with White text", R.color.white, R.drawable.theme_transparent_with_white_text, R.layout.layout_theme_transparent_with_white_text));
+        themes.add(new WidgetTheme(3, "Transparent with White text", R.color.white, R.drawable.theme_transparent_with_white_text, R.layout.layout_theme_transparent_with_white_text));
         /* black on bisque */
-        themes.add(new WidgetTheme(3, "Black on White", R.color.black, R.drawable.theme_black_on_bisque, R.layout.layout_theme_black_on_bisque));
+        themes.add(new WidgetTheme(4, "Black on White", R.color.black, R.drawable.theme_black_on_bisque, R.layout.layout_theme_black_on_bisque));
         /* black text on transparent */
-        themes.add(new WidgetTheme(4, "Transparent with Black text", R.color.black, R.drawable.theme_transparent_with_black_text, R.layout.layout_theme_transparent_with_black_text));
+        themes.add(new WidgetTheme(5, "Transparent with Black text", R.color.black, R.drawable.theme_transparent_with_black_text, R.layout.layout_theme_transparent_with_black_text));
         /* transparent lime */
-        themes.add(new WidgetTheme(5, "Lime", R.color.white, R.drawable.theme_lime, R.layout.layout_theme_lime));
+        themes.add(new WidgetTheme(6, "Lime", R.color.white, R.drawable.theme_lime, R.layout.layout_theme_lime));
         /* transparent aqua */
-        themes.add(new WidgetTheme(6, "Aqua", R.color.white, R.drawable.theme_aqua, R.layout.layout_theme_aqua));
+        themes.add(new WidgetTheme(7, "Aqua", R.color.white, R.drawable.theme_aqua, R.layout.layout_theme_aqua));
     }
 
     /* private constructor */
