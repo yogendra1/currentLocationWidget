@@ -45,7 +45,7 @@ public class LocationWidgetProvider extends AppWidgetProvider {
         String latitude = "";
         String longitude = "";
         if (savedAddressText != "") {
-            String[] fields = savedAddressText.split("-");
+            String[] fields = savedAddressText.split("#@#");
             if (fields[0] != "") {
                 latitude = fields[0];
             }

@@ -56,7 +56,7 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
         /* checking last resolved address and checking the distance between current location and previous if distance is less or equal than threshold using previous one */
         String lastAddressTxt = sharedPreferences.getString(Constants.KEY_LAST_ADDRESS, "");
         if (lastAddressTxt != "") {
-            String[] addressFields = lastAddressTxt.split("-");
+            String[] addressFields = lastAddressTxt.split("#@#");
             double latitude = Double.parseDouble(addressFields[0]);
             double longitude = Double.parseDouble(addressFields[1]);
 
@@ -72,7 +72,7 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
 
         /* reset the previous address text */
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        String addressTxtToSave = mLocation.getLatitude() + "-" + mLocation.getLongitude() + "-" + "";
+        String addressTxtToSave = mLocation.getLatitude() + "#@#" + mLocation.getLongitude() + "#@#" + "";
         Utilities.AppLog.d(TAG, ">>>> saving address - " + addressTxtToSave);
         editor.putString(Constants.KEY_LAST_ADDRESS, addressTxtToSave);
         editor.commit();
@@ -130,7 +130,7 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
 
         /* saving current address for future calls */
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        String addressTxtToSave = mLocation.getLatitude() + "-" + mLocation.getLongitude() + "-" + addressText;
+        String addressTxtToSave = mLocation.getLatitude() + "#@#" + mLocation.getLongitude() + "#@#" + addressText;
         Utilities.AppLog.d(TAG, ">>>> saving address - " + addressTxtToSave);
         editor.putString(Constants.KEY_LAST_ADDRESS, addressTxtToSave);
         editor.commit();
