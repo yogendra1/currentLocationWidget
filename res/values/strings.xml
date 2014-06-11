@@ -23,6 +23,7 @@
     <string name="map_link">Map link:</string>
     <string name="enable_status_bar_notification">Enable status bar notification</string>
     <string name="google_map_web_link">http://maps.google.com/maps?q=</string>
+    <string name="msg_could_not_resolve_address">Could not resolve address</string>
 
     <!-- theme names -->
     <string name="theme_white_on_black">White on black</string>

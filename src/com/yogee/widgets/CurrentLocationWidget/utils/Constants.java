@@ -43,7 +43,7 @@ public class Constants {
     public static final boolean loggingEnable = true;
 
     // max address resolving trials, in case of weak internet connection
-    public static final int MAX_ADDRESS_RESOLUTION_ATTEMPT = 10;
+    public static final int MAX_ADDRESS_RESOLUTION_ATTEMPT = 5;
 
     // shared preferences
     /* preference for selected theme */

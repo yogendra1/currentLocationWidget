@@ -6,6 +6,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.AsyncTask;
+import com.yogee.widgets.CurrentLocationWidget.R;
 
 import java.io.IOException;
 import java.util.List;
@@ -40,7 +41,7 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
     private int LAT_LON_DISTANCE_THRESHOLD = 50; //default is 50meters
 
     /* holds current address resolution attempt count */
-    private int currentAddressAttempt = 0;
+    private static int currentAddressAttempt = 0;
 
     public AddressFinder(Context context, AddressTextListener addressTextListener) {
         super();
@@ -54,7 +55,7 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
 
         /* getting location from input params */
         mLocation = params[0];
-        message = "Could not resolve Address,\n Lat: " + mLocation.getLatitude() + "\n Lon: " + mLocation.getLongitude();
+        message = mContext.getString(R.string.msg_could_not_resolve_address)+",\n Lat: " + mLocation.getLatitude() + "\n Lon: " + mLocation.getLongitude();
 
         /* checking last resolved address and checking the distance between current location and previous if distance is less or equal than threshold using previous one */
         String lastAddressTxt = sharedPreferences.getString(Constants.KEY_LAST_ADDRESS, "");
@@ -80,10 +81,31 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
         editor.putString(Constants.KEY_LAST_ADDRESS, addressTxtToSave);
         editor.commit();
 
-        /* getting geo coder instance */
+        String addressTxt = getAddressText();
+        if (addressTxt != null) {
+            message = addressTxt;
+        }
+
+        return message;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        if (mAddressTextListener != null) {
+            mAddressTextListener.onResult(message);
+        }
+    }
+
+    /* returns address after trying multiple times */
+    private synchronized String getAddressText() {
+
+        String addressTxt = null;
         while (currentAddressAttempt <= Constants.MAX_ADDRESS_RESOLUTION_ATTEMPT) {
 
             Utilities.AppLog.d(TAG, ">>>> Address resolution attempt no.  - " + currentAddressAttempt);
+
+            /* getting geo coder instance */
             if (Geocoder.isPresent()) {
 
                 geocoder = new Geocoder(mContext, Locale.getDefault());
@@ -99,7 +121,7 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
                         Utilities.AppLog.d(TAG, ">>>> Address found - " + addresses.get(0).toString());
 
                         /* get address text for first address */
-                        message = getFormattedAddress(addresses.get(0));
+                        addressTxt = getFormattedAddress(addresses.get(0));
                         break;
                     }
                 } catch (IOException e) {
@@ -110,15 +132,9 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
             currentAddressAttempt++;
         }
 
-        return message;
-    }
-
-    @Override
-    protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-        if (mAddressTextListener != null) {
-            mAddressTextListener.onResult(message);
-        }
+        /* resetting attempt counter */
+        currentAddressAttempt = 0;
+        return addressTxt;
     }
 
     /* returns formatted address */
