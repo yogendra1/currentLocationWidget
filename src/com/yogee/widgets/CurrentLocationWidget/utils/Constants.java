@@ -40,7 +40,7 @@ public class Constants {
     public static final String TYPE_MOBILE = "MOBILE";
 
     // logging enable/disable flag
-    public static final boolean loggingEnable = true;
+    public static final boolean loggingEnable = false;
 
     // max address resolving trials, in case of weak internet connection
     public static final int MAX_ADDRESS_RESOLUTION_ATTEMPT = 5;
