@@ -39,6 +39,9 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
     /* lat lon pair distance threshold in meters */
     private int LAT_LON_DISTANCE_THRESHOLD = 50; //default is 50meters
 
+    /* holds current address resolution attempt count */
+    private int currentAddressAttempt = 0;
+
     public AddressFinder(Context context, AddressTextListener addressTextListener) {
         super();
         mContext = context;
@@ -78,26 +81,33 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
         editor.commit();
 
         /* getting geo coder instance */
-        if (Geocoder.isPresent()) {
+        while (currentAddressAttempt <= Constants.MAX_ADDRESS_RESOLUTION_ATTEMPT) {
 
-            geocoder = new Geocoder(mContext, Locale.getDefault());
+            Utilities.AppLog.d(TAG, ">>>> Address resolution attempt no.  - " + currentAddressAttempt);
+            if (Geocoder.isPresent()) {
 
-            /* list of addresses */
-            List<Address> addresses = null;
+                geocoder = new Geocoder(mContext, Locale.getDefault());
 
-            /* try to geocode */
-            try {
-                addresses = geocoder.getFromLocation(mLocation.getLatitude(), mLocation.getLongitude(), 1);
+                 /* list of addresses */
+                List<Address> addresses = null;
 
-                if (addresses != null && addresses.size() > 0) {
-                    Utilities.AppLog.d(TAG, ">>>> Address found - " + addresses.get(0).toString());
+                 /* try to geocode */
+                try {
+                    addresses = geocoder.getFromLocation(mLocation.getLatitude(), mLocation.getLongitude(), 1);
 
-                    /* get address text for first address */
-                    message = getFormattedAddress(addresses.get(0));
+                    if (addresses != null && addresses.size() > 0) {
+                        Utilities.AppLog.d(TAG, ">>>> Address found - " + addresses.get(0).toString());
+
+                        /* get address text for first address */
+                        message = getFormattedAddress(addresses.get(0));
+                        break;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+
+            currentAddressAttempt++;
         }
 
         return message;

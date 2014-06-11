@@ -104,8 +104,8 @@ public class Utilities {
     public static void showStatusBarNotification(Context context, String latitude, String longitude, String addressText) {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), android.R.drawable.ic_menu_mylocation));
-        builder.setSmallIcon(android.R.drawable.ic_menu_mylocation);
+        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.ic_menu_mylocation));
+        builder.setSmallIcon(R.drawable.ic_menu_mylocation);
         builder.setContentTitle(context.getString(R.string.msg_you_are_nearby));
         builder.setContentText(addressText);
         builder.setAutoCancel(true);

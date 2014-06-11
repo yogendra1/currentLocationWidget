@@ -42,6 +42,9 @@ public class Constants {
     // logging enable/disable flag
     public static final boolean loggingEnable = true;
 
+    // max address resolving trials, in case of weak internet connection
+    public static final int MAX_ADDRESS_RESOLUTION_ATTEMPT = 10;
+
     // shared preferences
     /* preference for selected theme */
     public static final String PREFERENCE_LAST_ADDRESS = "PREFERENCE_LAST_ADDRESS";
