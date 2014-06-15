@@ -12,6 +12,9 @@
                  android:layout_height="match_parent"
                  android:id="@+id/btn_show_on_map"
                  android:layout_weight="4"
+                 android:layout_margin="1dp"
+                 android:padding="-1px"
+                 android:background="@color/transparent"
                  android:src="@android:drawable/ic_menu_view"/>
 
     <!-- layout for showing address and last update time -->
@@ -77,5 +80,8 @@
                  android:layout_height="match_parent"
                  android:id="@+id/btn_share_address"
                  android:layout_weight="4"
+                 android:background="@color/transparent"
+                 android:layout_margin="1dp"
+                 android:padding="-1px"
                  android:src="@android:drawable/ic_menu_share"/>
 </LinearLayout>

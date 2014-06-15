@@ -57,7 +57,11 @@ public class LocationWidgetProvider extends AppWidgetProvider {
             }
         }
 
-        if (intent.getAction().equals(AppWidgetManager.ACTION_APPWIDGET_UPDATE)) {
+
+        if (intent.getAction().equals(AppWidgetManager.ACTION_APPWIDGET_OPTIONS_CHANGED)) {
+            Utilities.AppLog.d(TAG, ">>>>> widget resized");
+
+        } else if (intent.getAction().equals(AppWidgetManager.ACTION_APPWIDGET_UPDATE)) {
             Utilities.AppLog.d(TAG, ">>>>> widget clicked");
 
             /* starting get location service */
@@ -86,7 +90,7 @@ public class LocationWidgetProvider extends AppWidgetProvider {
         } else if (intent.getAction().equals(Constants.INTENT_ACTION_SHOW_STATUS_BAR_NOTIFICATION)) {
             Utilities.AppLog.d(TAG, ">>>>> status bar notification event received");
 
-              if (latitude != null && !latitude.equals("") && longitude != null && !longitude.equals("") && addressToSend != null && !addressToSend .equals("")) {
+            if (latitude != null && !latitude.equals("") && longitude != null && !longitude.equals("") && addressToSend != null && !addressToSend.equals("")) {
                 Utilities.showStatusBarNotification(context, latitude, longitude, addressToSend);
             }
         }

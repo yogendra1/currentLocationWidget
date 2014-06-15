@@ -129,6 +129,13 @@ public class AddressFinder extends AsyncTask<Location, Void, String> {
                 }
             }
 
+            /* adding wait to give time to geocoder to start */
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             currentAddressAttempt++;
         }
 
