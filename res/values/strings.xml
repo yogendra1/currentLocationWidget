@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Location Widget</string>
+    <string name="app_name_settings">Location Widget Settings</string>
     <string name="initializing">Initializing...</string>
     <string name="refreshing">Refreshing...</string>
     <string name="msg_you_are_nearby">You are nearby</string>
