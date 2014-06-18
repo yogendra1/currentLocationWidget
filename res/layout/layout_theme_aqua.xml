@@ -69,9 +69,7 @@
                   android:textColor="@android:color/white"
                   android:text="@string/initializing"
                   android:layout_below="@id/lbl_nearby"
-                  android:layout_above="@+id/txt_last_update_time"
-                  android:ellipsize="end"
-                  android:maxLines="3"/>
+                  android:layout_above="@+id/txt_last_update_time"/>
 
     </RelativeLayout>
 

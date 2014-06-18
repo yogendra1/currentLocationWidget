@@ -45,6 +45,9 @@ public class Constants {
     // max address resolving trials, in case of weak internet connection
     public static final int MAX_ADDRESS_RESOLUTION_ATTEMPT = 5;
 
+    // wait before next geocoder call, wait to get activate in milliseconds
+    public static final int WAIT_FOR_GEOCODER_CALL = 1000 * 2;//2 seconds
+
     // shared preferences
     /* preference for selected theme */
     public static final String PREFERENCE_LAST_ADDRESS = "PREFERENCE_LAST_ADDRESS";
